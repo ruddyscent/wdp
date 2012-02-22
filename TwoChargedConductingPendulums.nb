@@ -1,0 +1,2108 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     94466,       2099]
+NotebookOptionsPosition[     90536,       1979]
+NotebookOutlinePosition[     92302,       2034]
+CellTagsIndexPosition[     91974,       2022]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Two Charged Conducting Pendulums\
+\>", "DemoTitle",
+ CellChangeTimes->{{3.525557651973628*^9, 3.525557668475666*^9}, {
+  3.525559854802516*^9, 3.525559855336196*^9}, {3.525561931768461*^9, 
+  3.525561934581284*^9}}],
+
+Cell["", "InitializationSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[CurlyEpsilon]0", "=", 
+        FractionBox[
+         RowBox[{"625000", " "}], 
+         RowBox[{"22468879468420441", "\[Pi]", " "}]]}], 
+       RowBox[{"(*", 
+        FractionBox[
+         RowBox[{"Ampere", " ", "Second"}], 
+         RowBox[{"Meter", " ", "Volt"}]], "*)"}], ",", 
+       RowBox[{"g", "=", 
+        FractionBox[
+         RowBox[{"196133", " "}], 
+         RowBox[{"20000", " "}]]}], 
+       RowBox[{"(*", 
+        FractionBox["Meter", 
+         SuperscriptBox["Second", "2"]], "*)"}], ",", "sol", ",", "\[Theta]1",
+        ",", "\[Theta]2", ",", "t"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"sol", "=", 
+       RowBox[{"NDSolve", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["\[Theta]1", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox[
+               RowBox[{"g", " ", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "l1"]}], "+", 
+             
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "d"}], " ", 
+                  RowBox[{"Cos", "[", 
+                   RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                 RowBox[{"l2", " ", 
+                  RowBox[{"Sin", "[", 
+                   RowBox[{
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "-", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}]}]}], ")"}], 
+               "/", 
+               RowBox[{"(", 
+                RowBox[{
+                "4", " ", "l1", " ", "m1", " ", "\[Pi]", " ", 
+                 "\[CurlyEpsilon]0", " ", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], 
+                  RowBox[{"3", "/", "2"}]]}], ")"}]}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    SuperscriptBox["q2", "2"], " ", "r1", " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], 
+                    RowBox[{"3", "/", "2"}]]}], ")"}], "/", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    SuperscriptBox["r1", "2"]}], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], "2"]}]}], "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   SuperscriptBox["q1", "2"], " ", "r2", " ", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], 
+                    RowBox[{"3", "/", "2"}]]}], ")"}], "/", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    SuperscriptBox["r2", "2"]}], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], "2"]}], "+", 
+                RowBox[{"q1", " ", "q2", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "+", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"r1", " ", "r2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}]}], ")"}], "/", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox["r1", "2"], "+", 
+                    SuperscriptBox["r2", "2"], "-", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "-", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], "2"]}]}], ")"}]}]}], ")"}]}], "-", 
+             FractionBox[
+              RowBox[{"b", " ", 
+               RowBox[{
+                SuperscriptBox["\[Theta]1", "\[Prime]",
+                 MultilineFunction->None], "[", "t", "]"}]}], "m1"]}]}], ",", 
+           
+           RowBox[{
+            RowBox[{
+             SuperscriptBox["\[Theta]2", "\[Prime]\[Prime]",
+              MultilineFunction->None], "[", "t", "]"}], "\[Equal]", 
+            RowBox[{
+             RowBox[{"-", 
+              FractionBox[
+               RowBox[{"g", " ", 
+                RowBox[{"Sin", "[", 
+                 RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}], "l2"]}], "+", 
+             
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"d", " ", 
+                  RowBox[{"Cos", "[", 
+                   RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}], "-", 
+                 RowBox[{"l1", " ", 
+                  RowBox[{"Sin", "[", 
+                   RowBox[{
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "-", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}]}], "]"}]}]}], ")"}], 
+               "/", 
+               RowBox[{"(", 
+                RowBox[{
+                "4", " ", "l2", " ", "m2", " ", "\[Pi]", " ", 
+                 "\[CurlyEpsilon]0", " ", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], 
+                  RowBox[{"3", "/", "2"}]]}], ")"}]}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    SuperscriptBox["q2", "2"], " ", "r1", " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], 
+                    RowBox[{"3", "/", "2"}]]}], ")"}], "/", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    SuperscriptBox["r1", "2"]}], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], "2"]}]}], "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   SuperscriptBox["q1", "2"], " ", "r2", " ", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], 
+                    RowBox[{"3", "/", "2"}]]}], ")"}], "/", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    SuperscriptBox["r2", "2"]}], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], "2"]}], "+", 
+                RowBox[{"q1", " ", "q2", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "+", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"r1", " ", "r2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "+", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}]}], ")"}], "/", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    SuperscriptBox["r1", "2"], "+", 
+                    SuperscriptBox["r2", "2"], "-", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "-", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Cos", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"], "-", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"d", "-", 
+                    RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]1", "[", "t", "]"}], "]"}]}], "+", 
+                    RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", 
+                    RowBox[{"\[Theta]2", "[", "t", "]"}], "]"}]}]}], ")"}], 
+                    "2"]}], ")"}], "2"]}]}], ")"}]}]}], ")"}]}], "-", 
+             FractionBox[
+              RowBox[{"b", " ", 
+               RowBox[{
+                SuperscriptBox["\[Theta]2", "\[Prime]",
+                 MultilineFunction->None], "[", "t", "]"}]}], "m2"]}]}], ",", 
+           
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]1", "'"}], "[", "0", "]"}], "\[Equal]", "v1"}], 
+           ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"\[Theta]2", "'"}], "[", "0", "]"}], "\[Equal]", "v2"}], 
+           ",", 
+           RowBox[{
+            RowBox[{"\[Theta]1", "[", "0", "]"}], "\[Equal]", "a1"}], ",", 
+           RowBox[{
+            RowBox[{"\[Theta]2", "[", "0", "]"}], "\[Equal]", "a2"}]}], "}"}],
+          ",", 
+         RowBox[{"{", 
+          RowBox[{"\[Theta]1", ",", "\[Theta]2"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "0", ",", "time"}], "}"}], ",", 
+         RowBox[{"Method", "\[Rule]", "\"\<StiffnessSwitching\>\""}]}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"angle1", "=", 
+           RowBox[{
+            RowBox[{"\[Theta]1", "[", "run", "]"}], "/.", 
+            RowBox[{"First", "[", "sol", "]"}]}]}], ",", 
+          RowBox[{"angle2", "=", 
+           RowBox[{
+            RowBox[{"\[Theta]2", "[", "run", "]"}], "/.", 
+            RowBox[{"First", "[", "sol", "]"}]}]}]}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Graphics", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"EdgeForm", "[", "Thick", "]"}], ",", "Black", ",", 
+            RowBox[{"{", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   FractionBox["d", "2"]}], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", "angle1", "]"}]}], "-", 
+                   FractionBox["d", "2"]}], ",", 
+                  RowBox[{
+                   RowBox[{"-", "l1"}], " ", 
+                   RowBox[{"Cos", "[", "angle1", "]"}]}]}], "}"}]}], "}"}], 
+              "]"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Brown", ",", 
+              RowBox[{"Disk", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   FractionBox["d", "2"]}], ",", "0"}], "}"}], ",", ".1"}], 
+               "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Green", ",", 
+              RowBox[{"Disk", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"l1", " ", 
+                    RowBox[{"Sin", "[", "angle1", "]"}]}], "-", 
+                   FractionBox["d", "2"]}], ",", 
+                  RowBox[{
+                   RowBox[{"-", "l1"}], " ", 
+                   RowBox[{"Cos", "[", "angle1", "]"}]}]}], "}"}], ",", 
+                "r1"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  FractionBox["d", "2"], ",", "0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", "angle2", "]"}]}], "+", 
+                   FractionBox["d", "2"]}], ",", 
+                  RowBox[{
+                   RowBox[{"-", "l2"}], " ", 
+                   RowBox[{"Cos", "[", "angle2", "]"}]}]}], "}"}]}], "}"}], 
+              "]"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Brown", ",", 
+              RowBox[{"Disk", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  FractionBox["d", "2"], ",", "0"}], "}"}], ",", ".1"}], 
+               "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Orange", ",", 
+              RowBox[{"Disk", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"l2", " ", 
+                    RowBox[{"Sin", "[", "angle2", "]"}]}], "+", 
+                   FractionBox["d", "2"]}], ",", 
+                  RowBox[{
+                   RowBox[{"-", "l2"}], " ", 
+                   RowBox[{"Cos", "[", "angle2", "]"}]}]}], "}"}], ",", 
+                "r2"}], "]"}]}], "}"}]}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "10.5"}], ",", "10.5"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"4.5", ",", 
+               RowBox[{"-", "4.5"}]}], "}"}]}], "}"}]}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"500", ",", "300"}], "}"}]}]}], "]"}]}], "]"}]}]}], "]"}],
+    ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<initial conditions of the left pendulum\>\"", ",", "Bold"}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a1", ",", "0", ",", "\"\<angle(rad)\>\""}], "}"}], ",", 
+     RowBox[{"-", 
+      FractionBox["\[Pi]", "2"]}], ",", 
+     FractionBox["\[Pi]", "2"], ",", 
+     FractionBox["\[Pi]", "180"], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v1", ",", "0", ",", "\"\<angular velocity(rad/sec)\>\""}], 
+      "}"}], ",", 
+     RowBox[{"-", 
+      FractionBox["\[Pi]", "2"]}], ",", 
+     FractionBox["\[Pi]", "2"], ",", 
+     FractionBox["\[Pi]", "180"], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"l1", ",", "3", ",", "\"\<length of arm(m)\>\""}], "}"}], ",", 
+     ".5", ",", "3.5", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r1", ",", ".3", ",", "\"\<radius(m)\>\""}], "}"}], ",", "0", 
+     ",", "1", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m1", ",", "3", ",", "\"\<mass(kg)\>\""}], "}"}], ",", ".5", 
+     ",", "3.5", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q1", ",", 
+       RowBox[{
+        RowBox[{"-", "3"}], "\[Times]", 
+        SuperscriptBox["10.", 
+         RowBox[{"-", "4"}]]}], ",", "\"\<charge(C)\>\""}], "}"}], ",", 
+     RowBox[{"-", 
+      SuperscriptBox["10.", 
+       RowBox[{"-", "3"}]]}], ",", 
+     SuperscriptBox["10.", 
+      RowBox[{"-", "3"}]], ",", 
+     SuperscriptBox["10.", 
+      RowBox[{"-", "4"}]], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{"\"\<initial conditions of the right pendulum\>\"", ",", "Bold"}],
+     "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a2", ",", "0", ",", "\"\<angle(rad)\>\""}], "}"}], ",", 
+     RowBox[{"-", 
+      FractionBox["\[Pi]", "2"]}], ",", 
+     FractionBox["\[Pi]", "2"], ",", 
+     FractionBox["\[Pi]", "180"], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v2", ",", "0", ",", "\"\<angular velocity(rad/sec)\>\""}], 
+      "}"}], ",", 
+     RowBox[{"-", 
+      FractionBox["\[Pi]", "2"]}], ",", 
+     FractionBox["\[Pi]", "2"], ",", 
+     FractionBox["\[Pi]", "180"], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"l2", ",", "3", ",", "\"\<length of arm(m)\>\""}], "}"}], ",", 
+     ".5", ",", "3.5", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r2", ",", ".3", ",", "\"\<radius(m)\>\""}], "}"}], ",", "0", 
+     ",", "1", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m2", ",", "3", ",", "\"\<mass(kg)\>\""}], "}"}], ",", ".5", 
+     ",", "3.5", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q2", ",", 
+       RowBox[{"3", "\[Times]", 
+        SuperscriptBox["10.", 
+         RowBox[{"-", "4"}]]}], ",", "\"\<charge(C)\>\""}], "}"}], ",", 
+     RowBox[{"-", 
+      SuperscriptBox["10.", 
+       RowBox[{"-", "3"}]]}], ",", 
+     SuperscriptBox["10.", 
+      RowBox[{"-", "3"}]], ",", 
+     SuperscriptBox["10.", 
+      RowBox[{"-", "4"}]], ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"d", ",", "10", ",", "\"\<distance of pivots(m)\>\""}], "}"}], 
+     ",", "9", ",", "11", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"b", ",", "0", ",", "\"\<resistive constant(kg/sec)\>\""}], 
+      "}"}], ",", "0", ",", "3.5", ",", ".1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"time", ",", "50", ",", "\"\<time to watch(sec)\>\""}], "}"}], 
+     ",", "10", ",", "100", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"run", ",", "0", ",", "\"\<release system\>\""}], "}"}], ",", 
+     "0", ",", "time", ",", ".001", ",", 
+     RowBox[{"ControlType", "\[Rule]", "Trigger"}], ",", 
+     RowBox[{"AnimationRate", "\[Rule]", "1"}]}], "}"}], ",", 
+   RowBox[{"SynchronousUpdating", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.525557862143652*^9, 3.525559843977868*^9, {3.525560855075074*^9, 
+   3.525560937641037*^9}, {3.525560997754313*^9, 3.525561000766176*^9}, {
+   3.527297199243194*^9, 3.5272972076718197`*^9}, {3.527297266376733*^9, 
+   3.527297266822138*^9}, {3.527297359087532*^9, 3.5272974224730043`*^9}, 
+   3.527297477269162*^9, {3.5272975343408527`*^9, 3.527297534559491*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+    0, $CellContext`b$$ = 0, $CellContext`d$$ = 10, $CellContext`l1$$ = 
+    3, $CellContext`l2$$ = 3.5, $CellContext`m1$$ = 3, $CellContext`m2$$ = 
+    3, $CellContext`q1$$ = -0.00030000000000000003`, $CellContext`q2$$ = 
+    0.00030000000000000003`, $CellContext`r1$$ = 0.3, $CellContext`r2$$ = 
+    1., $CellContext`run$$ = 49.96, $CellContext`time$$ = 
+    50, $CellContext`v1$$ = 0, $CellContext`v2$$ = Rational[-1, 10] Pi, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["initial conditions of the left pendulum", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a1$$], 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+      Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`v1$$], 0, "angular velocity(rad/sec)"}, 
+      Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`l1$$], 3, "length of arm(m)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`r1$$], 0.3, "radius(m)"}, 0, 1, 0.1}, {{
+       Hold[$CellContext`m1$$], 3, "mass(kg)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`q1$$], -0.00030000000000000003`, 
+       "charge(C)"}, -0.001, 0.001, 0.0001}, {
+      Hold[
+       Style["initial conditions of the right pendulum", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a2$$], 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+      Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`v2$$], Rational[-1, 10] Pi, 
+       "angular velocity(rad/sec)"}, Rational[-1, 2] Pi, Rational[1, 2] Pi, 
+      Rational[1, 180] Pi}, {{
+       Hold[$CellContext`l2$$], 3.5, "length of arm(m)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`r2$$], 1., "radius(m)"}, 0, 1, 0.1}, {{
+       Hold[$CellContext`m2$$], 3, "mass(kg)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`q2$$], 0.00030000000000000003`, "charge(C)"}, -0.001,
+       0.001, 0.0001}, {{
+       Hold[$CellContext`d$$], 10, "distance of pivots(m)"}, 9, 11, 0.1}, {{
+       Hold[$CellContext`b$$], 0, "resistive constant(kg/sec)"}, 0, 3.5, 
+      0.1}, {{
+       Hold[$CellContext`time$$], 50, "time to watch(sec)"}, 10, 100, 1}, {{
+       Hold[$CellContext`run$$], 49.96, "release system"}, 0, 
+      Dynamic[$CellContext`time$$], 0.001}}, Typeset`size$$ = {
+    500., {148., 152.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`a1$1893$$ = 
+    0, $CellContext`v1$1894$$ = 0, $CellContext`l1$1895$$ = 
+    0, $CellContext`r1$1896$$ = 0, $CellContext`m1$1897$$ = 
+    0, $CellContext`q1$1898$$ = 0, $CellContext`a2$1899$$ = 
+    0, $CellContext`v2$1900$$ = 0, $CellContext`l2$1901$$ = 
+    0, $CellContext`r2$1902$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+        0, $CellContext`b$$ = 0, $CellContext`d$$ = 10, $CellContext`l1$$ = 
+        3, $CellContext`l2$$ = 3.5, $CellContext`m1$$ = 3, $CellContext`m2$$ = 
+        3, $CellContext`q1$$ = -0.00030000000000000003`, $CellContext`q2$$ = 
+        0.00030000000000000003`, $CellContext`r1$$ = 0.3, $CellContext`r2$$ = 
+        1., $CellContext`run$$ = 49.96, $CellContext`time$$ = 
+        50, $CellContext`v1$$ = 0, $CellContext`v2$$ = Rational[-1, 10] Pi}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a1$$, $CellContext`a1$1893$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$1894$$, 0], 
+        Hold[$CellContext`l1$$, $CellContext`l1$1895$$, 0], 
+        Hold[$CellContext`r1$$, $CellContext`r1$1896$$, 0], 
+        Hold[$CellContext`m1$$, $CellContext`m1$1897$$, 0], 
+        Hold[$CellContext`q1$$, $CellContext`q1$1898$$, 0], 
+        Hold[$CellContext`a2$$, $CellContext`a2$1899$$, 0], 
+        Hold[$CellContext`v2$$, $CellContext`v2$1900$$, 0], 
+        Hold[$CellContext`l2$$, $CellContext`l2$1901$$, 0], 
+        Hold[$CellContext`r2$$, $CellContext`r2$1902$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`\[CurlyEpsilon]0$ = 
+         625000/(22468879468420441 Pi), $CellContext`g$ = 
+         196133/20000, $CellContext`sol$, $CellContext`\[Theta]1$, \
+$CellContext`\[Theta]2$, $CellContext`t$}, $CellContext`sol$ = 
+         NDSolve[{
+           Derivative[
+             2][$CellContext`\[Theta]1$][$CellContext`t$] == \
+-($CellContext`g$ (Sin[
+                  $CellContext`\[Theta]1$[$CellContext`t$]]/$CellContext`l1$$)\
+) + (((-$CellContext`d$$) Cos[
+                   $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ 
+                 Sin[$CellContext`\[Theta]1$[$CellContext`t$] - $CellContext`\
+\[Theta]2$[$CellContext`t$]])/(((((4 $CellContext`l1$$) $CellContext`m1$$) 
+                 Pi) $CellContext`\[CurlyEpsilon]0$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                 2))) (-((($CellContext`q2$$^2 $CellContext`r1$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                    2))/(-$CellContext`r1$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2) - \
+(($CellContext`q1$$^2 $CellContext`r2$$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                  2))/(-$CellContext`r2$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2 + \
+($CellContext`q1$$ $CellContext`q2$$) (
+                 1 + (($CellContext`r1$$ $CellContext`r2$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2))/($\
+CellContext`r1$$^2 + $CellContext`r2$$^2 - ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 - \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2)) - \
+$CellContext`b$$ (
+              Derivative[
+               1][$CellContext`\[Theta]1$][$CellContext`t$]/$CellContext`m1$$)\
+, Derivative[
+             2][$CellContext`\[Theta]2$][$CellContext`t$] == \
+-($CellContext`g$ (Sin[
+                  $CellContext`\[Theta]2$[$CellContext`t$]]/$CellContext`l2$$)\
+) + (($CellContext`d$$ Cos[
+                   $CellContext`\[Theta]2$[$CellContext`t$]] - \
+$CellContext`l1$$ 
+                Sin[$CellContext`\[Theta]1$[$CellContext`t$] - $CellContext`\
+\[Theta]2$[$CellContext`t$]])/(((((4 $CellContext`l2$$) $CellContext`m2$$) 
+                 Pi) $CellContext`\[CurlyEpsilon]0$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                 2))) (-((($CellContext`q2$$^2 $CellContext`r1$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                    2))/(-$CellContext`r1$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2) - \
+(($CellContext`q1$$^2 $CellContext`r2$$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                  2))/(-$CellContext`r2$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2 + \
+($CellContext`q1$$ $CellContext`q2$$) (
+                 1 + (($CellContext`r1$$ $CellContext`r2$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2))/($\
+CellContext`r1$$^2 + $CellContext`r2$$^2 - ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 - \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2)) - \
+$CellContext`b$$ (
+              Derivative[
+               1][$CellContext`\[Theta]2$][$CellContext`t$]/$CellContext`m2$$)\
+, Derivative[1][$CellContext`\[Theta]1$][0] == $CellContext`v1$$, 
+            Derivative[1][$CellContext`\[Theta]2$][
+             0] == $CellContext`v2$$, $CellContext`\[Theta]1$[
+             0] == $CellContext`a1$$, $CellContext`\[Theta]2$[
+             0] == $CellContext`a2$$}, {$CellContext`\[Theta]1$, \
+$CellContext`\[Theta]2$}, {$CellContext`t$, 0, $CellContext`time$$}, Method -> 
+           "StiffnessSwitching"]; With[{$CellContext`angle1$ = ReplaceAll[
+             $CellContext`\[Theta]1$[$CellContext`run$$], 
+             First[$CellContext`sol$]], $CellContext`angle2$ = ReplaceAll[
+             $CellContext`\[Theta]2$[$CellContext`run$$], 
+             First[$CellContext`sol$]]}, 
+          Graphics[{
+            EdgeForm[Thick], Black, {
+             
+             Line[{{-($CellContext`d$$/2), 
+                0}, {$CellContext`l1$$ 
+                 Sin[$CellContext`angle1$] - $CellContext`d$$/
+                2, (-$CellContext`l1$$) Cos[$CellContext`angle1$]}}]}, {Brown, 
+             Disk[{-($CellContext`d$$/2), 0}, 0.1]}, {Green, 
+             
+             Disk[{$CellContext`l1$$ 
+                Sin[$CellContext`angle1$] - $CellContext`d$$/
+               2, (-$CellContext`l1$$) 
+               Cos[$CellContext`angle1$]}, $CellContext`r1$$]}, {
+             
+             Line[{{$CellContext`d$$/2, 
+                0}, {$CellContext`l2$$ 
+                 Sin[$CellContext`angle2$] + $CellContext`d$$/
+                 2, (-$CellContext`l2$$) Cos[$CellContext`angle2$]}}]}, {
+            Brown, 
+             Disk[{$CellContext`d$$/2, 0}, 0.1]}, {Orange, 
+             
+             Disk[{$CellContext`l2$$ 
+                Sin[$CellContext`angle2$] + $CellContext`d$$/
+                2, (-$CellContext`l2$$) 
+               Cos[$CellContext`angle2$]}, $CellContext`r2$$]}}, 
+           PlotRange -> {{-10.5, 10.5}, {4.5, -4.5}}, 
+           ImageSize -> {500, 300}]]], "Specifications" :> {
+        Style[
+        "initial conditions of the left pendulum", 
+         Bold], {{$CellContext`a1$$, 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 0, "angular velocity(rad/sec)"}, 
+         Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`l1$$, 3, "length of arm(m)"}, 0.5, 3.5, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`r1$$, 0.3, "radius(m)"}, 0, 1, 0.1, 
+         Appearance -> "Labeled"}, {{$CellContext`m1$$, 3, "mass(kg)"}, 0.5, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`q1$$, -0.00030000000000000003`, 
+          "charge(C)"}, -0.001, 0.001, 0.0001, Appearance -> "Labeled"}, 
+        Delimiter, 
+        Style[
+        "initial conditions of the right pendulum", 
+         Bold], {{$CellContext`a2$$, 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`v2$$, Rational[-1, 10] Pi, 
+          "angular velocity(rad/sec)"}, Rational[-1, 2] Pi, Rational[1, 2] Pi,
+          Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`l2$$, 3.5, "length of arm(m)"}, 0.5, 3.5, 
+         0.1, Appearance -> "Labeled"}, {{$CellContext`r2$$, 1., "radius(m)"},
+          0, 1, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`m2$$, 3, "mass(kg)"}, 0.5, 3.5, 0.1, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`q2$$, 0.00030000000000000003`, 
+          "charge(C)"}, -0.001, 0.001, 0.0001, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`d$$, 10, "distance of pivots(m)"}, 9, 11, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, 0, "resistive constant(kg/sec)"}, 0, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`time$$, 50, "time to watch(sec)"}, 10, 
+         100, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`run$$, 49.96, "release system"}, 0, 
+         Dynamic[$CellContext`time$$], 0.001, ControlType -> Trigger, 
+         AnimationRate -> 1}}, "Options" :> {SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{1012., {262., 267.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->649176294]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell["\<\
+This demonstration shows the motion of two gravity pendulums coupled by the \
+charges on the weights. The weights are assumed to be perfect conducting \
+spheres and they are held at massless rigid rods. The linear approximation of \
+the angle is not applied to the equations of motion. The forces considered \
+are gravitational force, electric force, resistive force, and tension. The \
+induced polarization is considered using the method of image charge up to the \
+first order.\
+\>", "ManipulateCaption",
+ CellChangeTimes->{{3.525557962499121*^9, 3.525558040409406*^9}, {
+   3.525558120584738*^9, 3.52555813369087*^9}, {3.525559962354035*^9, 
+   3.525559964862188*^9}, {3.525561156636789*^9, 3.525561170214279*^9}, {
+   3.525561216172233*^9, 3.525561230955227*^9}, {3.525565735474017*^9, 
+   3.525565736767842*^9}, {3.525566386052322*^9, 3.525566435788936*^9}, {
+   3.525566691291891*^9, 3.525566700777058*^9}, {3.525566823063891*^9, 
+   3.525566860692803*^9}, {3.525566914836081*^9, 3.525566925810574*^9}, 
+   3.525567191318696*^9, {3.527667678095908*^9, 3.527667713173975*^9}, {
+   3.527667762417767*^9, 3.527667766449974*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+    0, $CellContext`b$$ = 0, $CellContext`d$$ = 9., $CellContext`l1$$ = 
+    3, $CellContext`l2$$ = 3, $CellContext`m1$$ = 3, $CellContext`m2$$ = 
+    3, $CellContext`q1$$ = 0, $CellContext`q2$$ = 0.001, $CellContext`r1$$ = 
+    0.3, $CellContext`r2$$ = 0.3, $CellContext`run$$ = 
+    50., $CellContext`time$$ = 50, $CellContext`v1$$ = 0, $CellContext`v2$$ = 
+    0, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["initial conditions of the left pendulum", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a1$$], 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+      Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`v1$$], 0, "angular velocity(rad/sec)"}, 
+      Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`l1$$], 3, "length of arm(m)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`r1$$], 0.3, "radius(m)"}, 0, 1, 0.1}, {{
+       Hold[$CellContext`m1$$], 3, "mass(kg)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`q1$$], 0, "charge(C)"}, -0.001, 0.001, 0.0001}, {
+      Hold[
+       Style["initial conditions of the right pendulum", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a2$$], 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+      Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`v2$$], 0, "angular velocity(rad/sec)"}, 
+      Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`l2$$], 3, "length of arm(m)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`r2$$], 0.3, "radius(m)"}, 0, 1, 0.1}, {{
+       Hold[$CellContext`m2$$], 3, "mass(kg)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`q2$$], 0.001, "charge(C)"}, -0.001, 0.001, 0.0001}, {{
+       Hold[$CellContext`d$$], 9., "distance of pivots(m)"}, 9, 11, 0.1}, {{
+       Hold[$CellContext`b$$], 0, "resistive constant(kg/sec)"}, 0, 3.5, 
+      0.1}, {{
+       Hold[$CellContext`time$$], 50, "time to watch(sec)"}, 10, 100, 1}, {{
+       Hold[$CellContext`run$$], 50., "release system"}, 0, 
+      Dynamic[$CellContext`time$$], 0.001}}, Typeset`size$$ = {
+    500., {148., 152.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`a1$2022$$ = 
+    0, $CellContext`v1$2023$$ = 0, $CellContext`l1$2024$$ = 
+    0, $CellContext`r1$2025$$ = 0, $CellContext`m1$2026$$ = 
+    0, $CellContext`q1$2027$$ = 0, $CellContext`a2$2028$$ = 
+    0, $CellContext`v2$2029$$ = 0, $CellContext`l2$2030$$ = 
+    0, $CellContext`r2$2031$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+        0, $CellContext`b$$ = 0, $CellContext`d$$ = 9., $CellContext`l1$$ = 
+        3, $CellContext`l2$$ = 3, $CellContext`m1$$ = 3, $CellContext`m2$$ = 
+        3, $CellContext`q1$$ = 0, $CellContext`q2$$ = 
+        0.001, $CellContext`r1$$ = 0.3, $CellContext`r2$$ = 
+        0.3, $CellContext`run$$ = 50., $CellContext`time$$ = 
+        50, $CellContext`v1$$ = 0, $CellContext`v2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a1$$, $CellContext`a1$2022$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$2023$$, 0], 
+        Hold[$CellContext`l1$$, $CellContext`l1$2024$$, 0], 
+        Hold[$CellContext`r1$$, $CellContext`r1$2025$$, 0], 
+        Hold[$CellContext`m1$$, $CellContext`m1$2026$$, 0], 
+        Hold[$CellContext`q1$$, $CellContext`q1$2027$$, 0], 
+        Hold[$CellContext`a2$$, $CellContext`a2$2028$$, 0], 
+        Hold[$CellContext`v2$$, $CellContext`v2$2029$$, 0], 
+        Hold[$CellContext`l2$$, $CellContext`l2$2030$$, 0], 
+        Hold[$CellContext`r2$$, $CellContext`r2$2031$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`\[CurlyEpsilon]0$ = 
+         625000/(22468879468420441 Pi), $CellContext`g$ = 
+         196133/20000, $CellContext`sol$, $CellContext`\[Theta]1$, \
+$CellContext`\[Theta]2$, $CellContext`t$}, $CellContext`sol$ = 
+         NDSolve[{
+           Derivative[
+             2][$CellContext`\[Theta]1$][$CellContext`t$] == \
+-($CellContext`g$ (Sin[
+                  $CellContext`\[Theta]1$[$CellContext`t$]]/$CellContext`l1$$)\
+) + (((-$CellContext`d$$) Cos[
+                   $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ 
+                 Sin[$CellContext`\[Theta]1$[$CellContext`t$] - $CellContext`\
+\[Theta]2$[$CellContext`t$]])/(((((4 $CellContext`l1$$) $CellContext`m1$$) 
+                 Pi) $CellContext`\[CurlyEpsilon]0$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                 2))) (-((($CellContext`q2$$^2 $CellContext`r1$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                    2))/(-$CellContext`r1$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2) - \
+(($CellContext`q1$$^2 $CellContext`r2$$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                  2))/(-$CellContext`r2$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2 + \
+($CellContext`q1$$ $CellContext`q2$$) (
+                 1 + (($CellContext`r1$$ $CellContext`r2$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2))/($\
+CellContext`r1$$^2 + $CellContext`r2$$^2 - ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 - \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2)) - \
+$CellContext`b$$ (
+              Derivative[
+               1][$CellContext`\[Theta]1$][$CellContext`t$]/$CellContext`m1$$)\
+, Derivative[
+             2][$CellContext`\[Theta]2$][$CellContext`t$] == \
+-($CellContext`g$ (Sin[
+                  $CellContext`\[Theta]2$[$CellContext`t$]]/$CellContext`l2$$)\
+) + (($CellContext`d$$ Cos[
+                   $CellContext`\[Theta]2$[$CellContext`t$]] - \
+$CellContext`l1$$ 
+                Sin[$CellContext`\[Theta]1$[$CellContext`t$] - $CellContext`\
+\[Theta]2$[$CellContext`t$]])/(((((4 $CellContext`l2$$) $CellContext`m2$$) 
+                 Pi) $CellContext`\[CurlyEpsilon]0$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                 2))) (-((($CellContext`q2$$^2 $CellContext`r1$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                    2))/(-$CellContext`r1$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2) - \
+(($CellContext`q1$$^2 $CellContext`r2$$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                  2))/(-$CellContext`r2$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2 + \
+($CellContext`q1$$ $CellContext`q2$$) (
+                 1 + (($CellContext`r1$$ $CellContext`r2$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2))/($\
+CellContext`r1$$^2 + $CellContext`r2$$^2 - ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 - \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2)) - \
+$CellContext`b$$ (
+              Derivative[
+               1][$CellContext`\[Theta]2$][$CellContext`t$]/$CellContext`m2$$)\
+, Derivative[1][$CellContext`\[Theta]1$][0] == $CellContext`v1$$, 
+            Derivative[1][$CellContext`\[Theta]2$][
+             0] == $CellContext`v2$$, $CellContext`\[Theta]1$[
+             0] == $CellContext`a1$$, $CellContext`\[Theta]2$[
+             
+             0] == $CellContext`a2$$}, {$CellContext`\[Theta]1$, \
+$CellContext`\[Theta]2$}, {$CellContext`t$, 0, $CellContext`time$$}, Method -> 
+           "StiffnessSwitching"]; With[{$CellContext`angle1$ = ReplaceAll[
+             $CellContext`\[Theta]1$[$CellContext`run$$], 
+             First[$CellContext`sol$]], $CellContext`angle2$ = ReplaceAll[
+             $CellContext`\[Theta]2$[$CellContext`run$$], 
+             First[$CellContext`sol$]]}, 
+          Graphics[{
+            EdgeForm[Thick], Black, {
+             
+             Line[{{-($CellContext`d$$/2), 
+                0}, {$CellContext`l1$$ 
+                 Sin[$CellContext`angle1$] - $CellContext`d$$/
+                2, (-$CellContext`l1$$) Cos[$CellContext`angle1$]}}]}, {Brown, 
+             Disk[{-($CellContext`d$$/2), 0}, 0.1]}, {Green, 
+             
+             Disk[{$CellContext`l1$$ 
+                Sin[$CellContext`angle1$] - $CellContext`d$$/
+               2, (-$CellContext`l1$$) 
+               Cos[$CellContext`angle1$]}, $CellContext`r1$$]}, {
+             
+             Line[{{$CellContext`d$$/2, 
+                0}, {$CellContext`l2$$ 
+                 Sin[$CellContext`angle2$] + $CellContext`d$$/
+                 2, (-$CellContext`l2$$) Cos[$CellContext`angle2$]}}]}, {
+            Brown, 
+             Disk[{$CellContext`d$$/2, 0}, 0.1]}, {Orange, 
+             
+             Disk[{$CellContext`l2$$ 
+                Sin[$CellContext`angle2$] + $CellContext`d$$/
+                2, (-$CellContext`l2$$) 
+               Cos[$CellContext`angle2$]}, $CellContext`r2$$]}}, 
+           PlotRange -> {{-10.5, 10.5}, {4.5, -4.5}}, 
+           ImageSize -> {500, 300}]]], "Specifications" :> {
+        Style[
+        "initial conditions of the left pendulum", 
+         Bold], {{$CellContext`a1$$, 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, 0, "angular velocity(rad/sec)"}, 
+         Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`l1$$, 3, "length of arm(m)"}, 0.5, 3.5, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`r1$$, 0.3, "radius(m)"}, 0, 1, 0.1, 
+         Appearance -> "Labeled"}, {{$CellContext`m1$$, 3, "mass(kg)"}, 0.5, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`q1$$, 0, "charge(C)"}, -0.001, 0.001, 
+         0.0001, Appearance -> "Labeled"}, Delimiter, 
+        Style[
+        "initial conditions of the right pendulum", 
+         Bold], {{$CellContext`a2$$, 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`v2$$, 0, "angular velocity(rad/sec)"}, 
+         Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`l2$$, 3, "length of arm(m)"}, 0.5, 3.5, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`r2$$, 0.3, "radius(m)"}, 0, 1, 0.1, 
+         Appearance -> "Labeled"}, {{$CellContext`m2$$, 3, "mass(kg)"}, 0.5, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`q2$$, 0.001, "charge(C)"}, -0.001, 0.001, 
+         0.0001, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`d$$, 9., "distance of pivots(m)"}, 9, 11, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, 0, "resistive constant(kg/sec)"}, 0, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`time$$, 50, "time to watch(sec)"}, 10, 
+         100, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`run$$, 50., "release system"}, 0, 
+         Dynamic[$CellContext`time$$], 0.001, ControlType -> Trigger, 
+         AnimationRate -> 1}}, "Options" :> {SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{1003., {260., 265.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1607153032]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a1$$ = Rational[-2, 15] 
+    Pi, $CellContext`a2$$ = 0, $CellContext`b$$ = 0, $CellContext`d$$ = 
+    10, $CellContext`l1$$ = 3.5, $CellContext`l2$$ = 3, $CellContext`m1$$ = 
+    3, $CellContext`m2$$ = 
+    3, $CellContext`q1$$ = -0.00030000000000000003`, $CellContext`q2$$ = 
+    0.00030000000000000003`, $CellContext`r1$$ = 0.3, $CellContext`r2$$ = 
+    0.3, $CellContext`run$$ = 4.644, $CellContext`time$$ = 
+    50, $CellContext`v1$$ = Rational[19, 180] Pi, $CellContext`v2$$ = 0, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["initial conditions of the left pendulum", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a1$$], Rational[-2, 15] Pi, "angle(rad)"}, 
+      Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`v1$$], Rational[19, 180] Pi, 
+       "angular velocity(rad/sec)"}, Rational[-1, 2] Pi, Rational[1, 2] Pi, 
+      Rational[1, 180] Pi}, {{
+       Hold[$CellContext`l1$$], 3.5, "length of arm(m)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`r1$$], 0.3, "radius(m)"}, 0, 1, 0.1}, {{
+       Hold[$CellContext`m1$$], 3, "mass(kg)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`q1$$], -0.00030000000000000003`, 
+       "charge(C)"}, -0.001, 0.001, 0.0001}, {
+      Hold[
+       Style["initial conditions of the right pendulum", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a2$$], 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+      Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`v2$$], 0, "angular velocity(rad/sec)"}, 
+      Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi}, {{
+       Hold[$CellContext`l2$$], 3, "length of arm(m)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`r2$$], 0.3, "radius(m)"}, 0, 1, 0.1}, {{
+       Hold[$CellContext`m2$$], 3, "mass(kg)"}, 0.5, 3.5, 0.1}, {{
+       Hold[$CellContext`q2$$], 0.00030000000000000003`, "charge(C)"}, -0.001,
+       0.001, 0.0001}, {{
+       Hold[$CellContext`d$$], 10, "distance of pivots(m)"}, 9, 11, 0.1}, {{
+       Hold[$CellContext`b$$], 0, "resistive constant(kg/sec)"}, 0, 3.5, 
+      0.1}, {{
+       Hold[$CellContext`time$$], 50, "time to watch(sec)"}, 10, 100, 1}, {{
+       Hold[$CellContext`run$$], 4.644, "release system"}, 0, 
+      Dynamic[$CellContext`time$$], 0.001}}, Typeset`size$$ = {
+    500., {148., 152.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`a1$2151$$ = 
+    0, $CellContext`v1$2152$$ = 0, $CellContext`l1$2153$$ = 
+    0, $CellContext`r1$2154$$ = 0, $CellContext`m1$2155$$ = 
+    0, $CellContext`q1$2156$$ = 0, $CellContext`a2$2157$$ = 
+    0, $CellContext`v2$2158$$ = 0, $CellContext`l2$2159$$ = 
+    0, $CellContext`r2$2160$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a1$$ = 
+        Rational[-2, 15] Pi, $CellContext`a2$$ = 0, $CellContext`b$$ = 
+        0, $CellContext`d$$ = 10, $CellContext`l1$$ = 3.5, $CellContext`l2$$ = 
+        3, $CellContext`m1$$ = 3, $CellContext`m2$$ = 
+        3, $CellContext`q1$$ = -0.00030000000000000003`, $CellContext`q2$$ = 
+        0.00030000000000000003`, $CellContext`r1$$ = 0.3, $CellContext`r2$$ = 
+        0.3, $CellContext`run$$ = 4.644, $CellContext`time$$ = 
+        50, $CellContext`v1$$ = Rational[19, 180] Pi, $CellContext`v2$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a1$$, $CellContext`a1$2151$$, 0], 
+        Hold[$CellContext`v1$$, $CellContext`v1$2152$$, 0], 
+        Hold[$CellContext`l1$$, $CellContext`l1$2153$$, 0], 
+        Hold[$CellContext`r1$$, $CellContext`r1$2154$$, 0], 
+        Hold[$CellContext`m1$$, $CellContext`m1$2155$$, 0], 
+        Hold[$CellContext`q1$$, $CellContext`q1$2156$$, 0], 
+        Hold[$CellContext`a2$$, $CellContext`a2$2157$$, 0], 
+        Hold[$CellContext`v2$$, $CellContext`v2$2158$$, 0], 
+        Hold[$CellContext`l2$$, $CellContext`l2$2159$$, 0], 
+        Hold[$CellContext`r2$$, $CellContext`r2$2160$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`\[CurlyEpsilon]0$ = 
+         625000/(22468879468420441 Pi), $CellContext`g$ = 
+         196133/20000, $CellContext`sol$, $CellContext`\[Theta]1$, \
+$CellContext`\[Theta]2$, $CellContext`t$}, $CellContext`sol$ = 
+         NDSolve[{
+           Derivative[
+             2][$CellContext`\[Theta]1$][$CellContext`t$] == \
+-($CellContext`g$ (Sin[
+                  $CellContext`\[Theta]1$[$CellContext`t$]]/$CellContext`l1$$)\
+) + (((-$CellContext`d$$) Cos[
+                   $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ 
+                 Sin[$CellContext`\[Theta]1$[$CellContext`t$] - $CellContext`\
+\[Theta]2$[$CellContext`t$]])/(((((4 $CellContext`l1$$) $CellContext`m1$$) 
+                 Pi) $CellContext`\[CurlyEpsilon]0$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                 2))) (-((($CellContext`q2$$^2 $CellContext`r1$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                    2))/(-$CellContext`r1$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2) - \
+(($CellContext`q1$$^2 $CellContext`r2$$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                  2))/(-$CellContext`r2$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2 + \
+($CellContext`q1$$ $CellContext`q2$$) (
+                 1 + (($CellContext`r1$$ $CellContext`r2$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2))/($\
+CellContext`r1$$^2 + $CellContext`r2$$^2 - ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 - \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2)) - \
+$CellContext`b$$ (
+              Derivative[
+               1][$CellContext`\[Theta]1$][$CellContext`t$]/$CellContext`m1$$)\
+, Derivative[
+             2][$CellContext`\[Theta]2$][$CellContext`t$] == \
+-($CellContext`g$ (Sin[
+                  $CellContext`\[Theta]2$[$CellContext`t$]]/$CellContext`l2$$)\
+) + (($CellContext`d$$ Cos[
+                   $CellContext`\[Theta]2$[$CellContext`t$]] - \
+$CellContext`l1$$ 
+                Sin[$CellContext`\[Theta]1$[$CellContext`t$] - $CellContext`\
+\[Theta]2$[$CellContext`t$]])/(((((4 $CellContext`l2$$) $CellContext`m2$$) 
+                 Pi) $CellContext`\[CurlyEpsilon]0$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                 2))) (-((($CellContext`q2$$^2 $CellContext`r1$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                    2))/(-$CellContext`r1$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2) - \
+(($CellContext`q1$$^2 $CellContext`r2$$) (($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^(3/
+                  2))/(-$CellContext`r2$$^2 + ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2 + \
+($CellContext`q1$$ $CellContext`q2$$) (
+                 1 + (($CellContext`r1$$ $CellContext`r2$$) \
+(($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 + \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2))/($\
+CellContext`r1$$^2 + $CellContext`r2$$^2 - ($CellContext`l1$$ Cos[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] - \
+$CellContext`l2$$ Cos[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2 - \
+($CellContext`d$$ - $CellContext`l1$$ Sin[
+                    $CellContext`\[Theta]1$[$CellContext`t$]] + \
+$CellContext`l2$$ Sin[
+                    $CellContext`\[Theta]2$[$CellContext`t$]])^2)^2)) - \
+$CellContext`b$$ (
+              Derivative[
+               1][$CellContext`\[Theta]2$][$CellContext`t$]/$CellContext`m2$$)\
+, Derivative[1][$CellContext`\[Theta]1$][0] == $CellContext`v1$$, 
+            Derivative[1][$CellContext`\[Theta]2$][
+             0] == $CellContext`v2$$, $CellContext`\[Theta]1$[
+             0] == $CellContext`a1$$, $CellContext`\[Theta]2$[
+             0] == $CellContext`a2$$}, {$CellContext`\[Theta]1$, \
+$CellContext`\[Theta]2$}, {$CellContext`t$, 0, $CellContext`time$$}, Method -> 
+           "StiffnessSwitching"]; With[{$CellContext`angle1$ = ReplaceAll[
+             $CellContext`\[Theta]1$[$CellContext`run$$], 
+             First[$CellContext`sol$]], $CellContext`angle2$ = ReplaceAll[
+             $CellContext`\[Theta]2$[$CellContext`run$$], 
+             First[$CellContext`sol$]]}, 
+          Graphics[{
+            EdgeForm[Thick], Black, {
+             
+             Line[{{-($CellContext`d$$/2), 
+                0}, {$CellContext`l1$$ 
+                 Sin[$CellContext`angle1$] - $CellContext`d$$/
+                2, (-$CellContext`l1$$) Cos[$CellContext`angle1$]}}]}, {Brown, 
+             Disk[{-($CellContext`d$$/2), 0}, 0.1]}, {Green, 
+             
+             Disk[{$CellContext`l1$$ 
+                Sin[$CellContext`angle1$] - $CellContext`d$$/
+               2, (-$CellContext`l1$$) 
+               Cos[$CellContext`angle1$]}, $CellContext`r1$$]}, {
+             
+             Line[{{$CellContext`d$$/2, 
+                0}, {$CellContext`l2$$ 
+                 Sin[$CellContext`angle2$] + $CellContext`d$$/
+                 2, (-$CellContext`l2$$) Cos[$CellContext`angle2$]}}]}, {
+            Brown, 
+             Disk[{$CellContext`d$$/2, 0}, 0.1]}, {Orange, 
+             
+             Disk[{$CellContext`l2$$ 
+                Sin[$CellContext`angle2$] + $CellContext`d$$/
+                2, (-$CellContext`l2$$) 
+               Cos[$CellContext`angle2$]}, $CellContext`r2$$]}}, 
+           PlotRange -> {{-10.5, 10.5}, {4.5, -4.5}}, 
+           ImageSize -> {500, 300}]]], "Specifications" :> {
+        Style[
+        "initial conditions of the left pendulum", 
+         Bold], {{$CellContext`a1$$, Rational[-2, 15] Pi, "angle(rad)"}, 
+         Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`v1$$, Rational[19, 180] Pi, 
+          "angular velocity(rad/sec)"}, Rational[-1, 2] Pi, Rational[1, 2] Pi,
+          Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`l1$$, 3.5, "length of arm(m)"}, 0.5, 3.5, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`r1$$, 0.3, "radius(m)"}, 0, 1, 0.1, 
+         Appearance -> "Labeled"}, {{$CellContext`m1$$, 3, "mass(kg)"}, 0.5, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`q1$$, -0.00030000000000000003`, 
+          "charge(C)"}, -0.001, 0.001, 0.0001, Appearance -> "Labeled"}, 
+        Delimiter, 
+        Style[
+        "initial conditions of the right pendulum", 
+         Bold], {{$CellContext`a2$$, 0, "angle(rad)"}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, Rational[1, 180] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`v2$$, 0, "angular velocity(rad/sec)"}, 
+         Rational[-1, 2] Pi, Rational[1, 2] Pi, Rational[1, 180] Pi, 
+         Appearance -> 
+         "Labeled"}, {{$CellContext`l2$$, 3, "length of arm(m)"}, 0.5, 3.5, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`r2$$, 0.3, "radius(m)"}, 0, 1, 0.1, 
+         Appearance -> "Labeled"}, {{$CellContext`m2$$, 3, "mass(kg)"}, 0.5, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`q2$$, 0.00030000000000000003`, 
+          "charge(C)"}, -0.001, 0.001, 0.0001, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`d$$, 10, "distance of pivots(m)"}, 9, 11, 
+         0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`b$$, 0, "resistive constant(kg/sec)"}, 0, 
+         3.5, 0.1, Appearance -> 
+         "Labeled"}, {{$CellContext`time$$, 50, "time to watch(sec)"}, 10, 
+         100, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`run$$, 4.644, "release system"}, 0, 
+         Dynamic[$CellContext`time$$], 0.001, ControlType -> Trigger, 
+         AnimationRate -> 1}}, "Options" :> {SynchronousUpdating -> False}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{1012., {265., 270.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->558454771]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell["\<\
+R. P. Feynman, R. B. Leighton, and M. L. Sands, The Feynman Lectures on \
+Physics, 2nd ed., vol. 2, 3 vols. 251 South A Street Oxnard, California \
+93030: Addison-Wesley Publishing Company, Inc, 1964.\
+\>", "DetailNotes",
+ CellChangeTimes->{{3.525561904801142*^9, 3.525562018937655*^9}, {
+   3.525562090403293*^9, 3.52556211814253*^9}, {3.525562323757434*^9, 
+   3.525562380294205*^9}, {3.52556532025876*^9, 3.525565354321075*^9}, {
+   3.525565423199557*^9, 3.525565508612789*^9}, {3.525565660922567*^9, 
+   3.525565690253169*^9}, 3.525565840856752*^9, {3.525566180686329*^9, 
+   3.525566182401727*^9}, 3.525566375341436*^9, {3.525641675718098*^9, 
+   3.525641703006141*^9}, 3.52564255143584*^9, {3.527667535446005*^9, 
+   3.527667544343088*^9}},
+ CellID->1686751384]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["pendulum", "SearchTerms",
+ CellChangeTimes->{{3.525561331223706*^9, 3.52556133303302*^9}},
+ CellID->1148235139],
+
+Cell["pendula", "SearchTerms",
+ CellChangeTimes->{{3.525561334303558*^9, 3.525561335346283*^9}},
+ CellID->147475476],
+
+Cell["Coulomb's law", "SearchTerms",
+ CellChangeTimes->{{3.525561338469833*^9, 3.525561342893707*^9}, {
+  3.525565557389383*^9, 3.525565561082548*^9}, {3.525641952824883*^9, 
+  3.525641952981876*^9}},
+ CellID->1935598566],
+
+Cell["charged conductor", "SearchTerms",
+ CellChangeTimes->{{3.525561352408593*^9, 3.525561355660857*^9}, {
+  3.525641957451308*^9, 3.525641957454657*^9}},
+ CellID->67109913],
+
+Cell["method of image charges", "SearchTerms",
+ CellChangeTimes->{{3.525641958495256*^9, 3.525641975447665*^9}},
+ CellID->767700902]
+}, Open  ]],
+
+Cell["", "RelatedLinksSection"],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell["Contributed by: Kyungwon Chun", "Author",
+ CellChangeTimes->{{3.525560137780792*^9, 3.525560140228326*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, Automatic},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{Automatic, Automatic},
+PrintingOptions->{"PaperOrientation"->"Portrait",
+"PaperSize"->{594.75, 842.25},
+"PostScriptOutputFile"->""},
+FrontEndVersion->"8.0 for Linux x86 (64-bit) (February 23, 2011)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "AutomaticAnimation"->{
+  Cell[87079, 1883, 1464, 31, 23, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[88546, 1916, 908, 21, 23, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]},
+ "CreateAndDeleteLocators"->{
+  Cell[85220, 1832, 637, 15, 23, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "DragLocators"->{
+  Cell[84877, 1819, 340, 11, 23, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "GamepadControls"->{
+  Cell[86707, 1872, 369, 9, 23, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "ResizeImages"->{
+  Cell[83881, 1791, 312, 8, 23, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[84196, 1801, 678, 16, 23, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "SliderZoom"->{
+  Cell[85860, 1849, 844, 21, 23, "ControlSuggestions",
+   CellTags->"SliderZoom"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"AutomaticAnimation", 91081, 1995},
+ {"BookmarkAnimation", 91198, 1998},
+ {"CreateAndDeleteLocators", 91319, 2001},
+ {"DragLocators", 91435, 2004},
+ {"GamepadControls", 91543, 2007},
+ {"ResizeImages", 91650, 2010},
+ {"RotateAndZoomIn3D", 91759, 2013},
+ {"SliderZoom", 91867, 2016}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 225, 5, 76, "DemoTitle"],
+Cell[807, 29, 33, 0, 266, "InitializationSection"],
+Cell[CellGroupData[{
+Cell[865, 33, 29, 0, 188, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[919, 37, 30923, 757, 1532, "Input"],
+Cell[31845, 796, 16640, 310, 541, "Output",
+ CellID->649176294]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48534, 1112, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[48573, 1114, 1141, 17, 58, "ManipulateCaption"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49751, 1136, 28, 0, 168, "ThumbnailSection"],
+Cell[49782, 1138, 16367, 306, 537, "Output",
+ CellID->1607153032]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66186, 1449, 28, 0, 138, "SnapshotsSection"],
+Cell[66217, 1451, 16744, 313, 547, "Output",
+ CellID->558454771]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82998, 1769, 26, 0, 332, "DetailsSection"],
+Cell[83027, 1771, 777, 13, 41, "DetailNotes",
+ CellID->1686751384]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83841, 1789, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[83881, 1791, 312, 8, 23, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[84196, 1801, 678, 16, 23, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[84877, 1819, 340, 11, 23, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[85220, 1832, 637, 15, 23, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[85860, 1849, 844, 21, 23, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[86707, 1872, 369, 9, 23, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[87079, 1883, 1464, 31, 23, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[88546, 1916, 908, 21, 23, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89491, 1942, 30, 0, 152, "SearchTermsSection"],
+Cell[89524, 1944, 117, 2, 23, "SearchTerms",
+ CellID->1148235139],
+Cell[89644, 1948, 116, 2, 23, "SearchTerms",
+ CellID->147475476],
+Cell[89763, 1952, 221, 4, 23, "SearchTerms",
+ CellID->1935598566],
+Cell[89987, 1958, 174, 3, 23, "SearchTerms",
+ CellID->67109913],
+Cell[90164, 1963, 132, 2, 23, "SearchTerms",
+ CellID->767700902]
+}, Open  ]],
+Cell[90311, 1968, 31, 0, 138, "RelatedLinksSection"],
+Cell[CellGroupData[{
+Cell[90367, 1972, 25, 0, 124, "AuthorSection"],
+Cell[90395, 1974, 113, 1, 23, "Author"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
